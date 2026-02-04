@@ -1,12 +1,25 @@
+import { useState } from "react";
 import "./App.css";
-import Login from "./Login";
-import Register from "./Register";
-import React from "react";
+import StepOne from "./components/steps/stepOne";
+import StepThree from "./components/steps/StepThree";
+import StepTwo from "./components/steps/StepTwo";
 
 function App() {
-  const state = false;
+  const [step, setStep] = useState(1);
 
-  return <>{state ? <Login /> : <Register />}</>;
+  return (
+    <>
+      <h1>Onboarding Details</h1>
+
+      {step === 1 ? (
+        <StepOne setStep={setStep} />
+      ) : step === 2 ? (
+        <StepTwo setStep={setStep} />
+      ) : (
+        <StepThree />
+      )}
+    </>
+  );
 }
 
 export default App;

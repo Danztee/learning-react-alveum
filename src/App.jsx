@@ -7,16 +7,34 @@ import StepTwo from "./components/steps/StepTwo";
 function App() {
   const [step, setStep] = useState(1);
 
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+  });
+
+  const handleChange = (e) => {
+    // console.log(e, "event.....");
+    // console.log(e.target.name, e.target.value);
+
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  // console.log(form, "form.....");
+
   return (
     <>
       <h1>Onboarding Details</h1>
 
       {step === 1 ? (
-        <StepOne setStep={setStep} />
+        <StepOne setStep={setStep} form={form} handleChange={handleChange} />
       ) : step === 2 ? (
-        <StepTwo setStep={setStep} />
+        <StepTwo setStep={setStep} form={form} handleChange={handleChange} />
       ) : (
-        <StepThree />
+        <StepThree form={form} handleChange={handleChange} />
       )}
     </>
   );

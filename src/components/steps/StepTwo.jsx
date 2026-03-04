@@ -1,6 +1,6 @@
 import React from "react";
 
-const StepTwo = ({ setStep }) => {
+const StepTwo = ({ setStep, form, handleChange }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,12 +22,24 @@ const StepTwo = ({ setStep }) => {
       >
         <div>
           <label htmlFor="email">Email: </label>
-          <input type="email" id="email" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={form.email}
+          />
         </div>
 
         <div>
           <label htmlFor="phone">Phone Number: </label>
-          <input type="tel" id="phone" />
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            onChange={handleChange}
+            value={form.phone}
+          />
         </div>
 
         <button

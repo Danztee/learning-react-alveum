@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import "./App.css";
 import StepOne from "./components/steps/stepOne";
 import StepThree from "./components/steps/StepThree";
@@ -51,11 +51,9 @@ function App() {
 
   return (
     <>
-      <button onClick={handleClick}>Click me</button>
-
-      <p>number : {ref.current}</p>
-
-      {/* / <Todo /> */}
+      {/* <button onClick={handleClick}>Click me</button> */}
+      {/* <p>number : {ref.current}</p> */}
+      <Todo />
     </>
     // <>
     //   <h1>Onboarding Details</h1>

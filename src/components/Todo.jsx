@@ -1,33 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React from // { useEffect, useState }
+
+"react";
+import { useFetch } from "../hooks/useFetch";
 
 const Todo = () => {
-  const [todos, setTodos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [todos, setTodos] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
-  async function fetchData() {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos",
-      );
-      const data = await response.json();
-      setTodos(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const {
+    data: todos,
+    loading,
+    // error,
+  } = useFetch("https://jsonplaceholder.typicode.com/todos");
+
+  // async function fetchData() {
+  //   try {
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/todos",
+  //     );
+  //     const data = await response.json();
+  //     setTodos(data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   //   useEffect(1);
 
-  useEffect(() => {
-    // fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
-    //   res.json().then((data) => {
-    //     console.log(data);
-    //   }),
-    // );
+  // useEffect(() => {
+  //   // fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+  //   //   res.json().then((data) => {
+  //   //     console.log(data);
+  //   //   }),
+  //   // );
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   if (loading) {
     return <div>Loading...</div>;
